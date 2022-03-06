@@ -59,11 +59,13 @@ export const SHIPMENT_CREATE_BODY_TEMPLATE =
 };
 
 export const TEXT_DAYS = 'Días:';
+export const TEXT_ERROR_MESSAGE = 'Detalles del error:';
+export const TEXT_GENERATING_GUIDE = 'Un momento, estamos generando su Guía...';
+export const TEXT_GUIDE_ERROR_MESSAGE_TITLE = 'Hubo un error generando su Guía para la opción deseada (intente escogiendo otra opción si así lo desea)';
+export const TEXT_SEARCH_ERROR_MESSAGE_TITLE = 'Hubo un error al buscar las posibles cotizaciones (recuerde que todos los campos son requeridos)';
 export const TEXT_SEARCHING_BEST_OPTIONS = 'Buscando las mejores opciones para ti...';
 export const TEXT_SORRY = 'Lo sentimos! Hubo un problema, intenta nuevamente.';
-export const TEXT_GUIDE_ERROR_MESSAGE_TITLE = 'Hubo un error generando su Guía para la opción deseada (intente escogiendo otra opción si así lo desea)';
-export const TEXT_ERROR_MESSAGE = 'Detalles del error:';
-export const TEXT_SEARCH_ERROR_MESSAGE_TITLE = 'Hubo un error al buscar las posibles cotizaciones (recuerde que todos los campos son requeridos)';
+
 
 export const TITLE = 'Cotizador de Paquetería';
 export const TITLE_BEST_OPTION = 'MEJOR OPCION!!';
