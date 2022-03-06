@@ -9,16 +9,16 @@ import { shipmentsSelector } from '../../features/shipment'
 import { getBestShipmentOptions, LabelResponseType, Rate, ShipmentResponse } from '../../app/utils'
 import ErrorMessage from '../atoms/ErrorMessage'
 import ShipmentCardOffer from '../molecules/ShipmentCardOffer'
-import { TEXT_GUIDE_ERROR_MESSAGE_TITLE, TEXT_SEARCH_ERROR_MESSAGE_TITLE, TEXT_SEARCHING_BEST_OPTIONS } from '../../app/constants'
+import { TEXT_GENERATING_GUIDE, TEXT_GUIDE_ERROR_MESSAGE_TITLE, TEXT_SEARCH_ERROR_MESSAGE_TITLE, TEXT_SEARCHING_BEST_OPTIONS } from '../../app/constants'
 
 const ShipmentResults = (): JSX.Element => {
-  const response: ShipmentResponse = useAppSelector(shipmentsSelector);
+  const shipmentResponse: ShipmentResponse = useAppSelector(shipmentsSelector);
   const labelResponse: LabelResponseType = useAppSelector(labelsSelector);
 
   let rates: Rate[] | undefined;
 
-  if (response) {
-    rates = getBestShipmentOptions({included: response.data.included});
+  if (shipmentResponse && shipmentResponse.data) {
+    rates = getBestShipmentOptions({included: shipmentResponse.data.included});
   }
 
   if (!labelResponse.pending && 
@@ -32,13 +32,13 @@ const ShipmentResults = (): JSX.Element => {
   return (
     <>
       {!labelResponse.pending && labelResponse.error && <ErrorMessage errorMessage={labelResponse.errorMessage} title={TEXT_GUIDE_ERROR_MESSAGE_TITLE} />}
-      {!response.pending && response.error && <ErrorMessage errorMessage={response.errorMessage} title={TEXT_SEARCH_ERROR_MESSAGE_TITLE} />}
-      {labelResponse.pending && <p>Un momento, estamos generando su Guìa...</p>}
-      <Grid container>
-        {response.pending && <p>{TEXT_SEARCHING_BEST_OPTIONS}</p>}
+      {!shipmentResponse.pending && shipmentResponse.error && <ErrorMessage errorMessage={shipmentResponse.errorMessage} title={TEXT_SEARCH_ERROR_MESSAGE_TITLE} />}
+      {labelResponse.pending && <p data-testid="generatingGuide">{TEXT_GENERATING_GUIDE}</p>}
+      <Grid data-testid="mainGrid" container>
+        {shipmentResponse.pending && <p data-testid="searchingOptions">{TEXT_SEARCHING_BEST_OPTIONS}</p>}
         {
-          !response.pending && !response.error &&
-          response.data && rates?.map((item, index) => <ShipmentCardOffer key={`card-${index}`} item={item} index={index} />)
+          !shipmentResponse.pending && !shipmentResponse.error &&
+          shipmentResponse.data && rates?.map((item, index) => <ShipmentCardOffer key={`card-${index}`} item={item} index={index} />)
         }
       </Grid>
     </>

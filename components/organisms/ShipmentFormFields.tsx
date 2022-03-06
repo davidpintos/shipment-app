@@ -33,7 +33,6 @@ const ShipmentFormFields = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const response: ShipmentResponse = useAppSelector(shipmentsSelector);
 
-  
   const handleShipmentButton = () => {
     dispatch(resetState());
     dispatch(createNewShipment({
@@ -48,14 +47,14 @@ const ShipmentFormFields = (): JSX.Element => {
   
   return (
     <Grid container spacing={2} item xs={true}>
-      <ShipmentGridForm size={6} isFullWidth={true} isRequired={true} value={addressFrom} onChange={(e:any) => setAddressFrom((e.target as HTMLInputElement).value)} placeholder={PLACEHOLDER_CP_SOURCE}/>
-      <ShipmentGridForm size={6} isFullWidth={true} isRequired={true} value={addressTo} onChange={(e:any) => setAddressTo((e.target as HTMLInputElement).value)} placeholder={PLACEHOLDER_CP_TARGET} />
-      <ShipmentGridForm size={3} isFullWidth={true} isRequired={true} value={length} onChange={(e:any) => setLength(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_LENGTH} />
-      <ShipmentGridForm size={3} isFullWidth={true} isRequired={true} value={height} onChange={(e:any) => setHeight(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_HEIGHT} />
-      <ShipmentGridForm size={3} isFullWidth={true} isRequired={true} value={width} onChange={(e:any) => setWidth(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_WIDTH} />
-      <ShipmentGridForm size={3} isFullWidth={true} isRequired={true} value={weight} onChange={(e:any) => setWeight(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_WEIGHT} />
+      <ShipmentGridForm name="addressFrom" size={6} isFullWidth={true} isRequired={true} value={addressFrom} onChange={(e:any) => setAddressFrom((e.target as HTMLInputElement).value)} placeholder={PLACEHOLDER_CP_SOURCE}/>
+      <ShipmentGridForm name="addressTo" size={6} isFullWidth={true} isRequired={true} value={addressTo} onChange={(e:any) => setAddressTo((e.target as HTMLInputElement).value)} placeholder={PLACEHOLDER_CP_TARGET} />
+      <ShipmentGridForm name="length" size={3} isFullWidth={true} isRequired={true} value={length} onChange={(e:any) => setLength(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_LENGTH} />
+      <ShipmentGridForm name="height" size={3} isFullWidth={true} isRequired={true} value={height} onChange={(e:any) => setHeight(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_HEIGHT} />
+      <ShipmentGridForm name="width" size={3} isFullWidth={true} isRequired={true} value={width} onChange={(e:any) => setWidth(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_WIDTH} />
+      <ShipmentGridForm name="weight" size={3} isFullWidth={true} isRequired={true} value={weight} onChange={(e:any) => setWeight(numberValidation(parseInt((e.target as HTMLInputElement).value)))} placeholder={PLACEHOLDER_WEIGHT} />
       <Grid item>
-        <Button onClick={() => handleShipmentButton()} disabled={response.pending} variant="outlined">{LABEL_BUTTON_QUOTE}</Button>
+        <Button data-testid="quoteButton" onClick={() => handleShipmentButton()} disabled={response.pending} variant="outlined">{LABEL_BUTTON_QUOTE}</Button>
       </Grid>
     </Grid>
   )

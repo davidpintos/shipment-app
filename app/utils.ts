@@ -35,6 +35,7 @@ export type ShipmentDataType = {
 export type ShipmentFieldTypes = {
   isFullWidth: boolean,
   isRequired: boolean,
+  name: string,
   onChange: React.ChangeEventHandler,
   placeholder: string,
   value: string | number
@@ -42,6 +43,7 @@ export type ShipmentFieldTypes = {
 export type ShipmentGridFormTypes = {
   isFullWidth: boolean,
   isRequired: boolean,
+  name: string,
   onChange: React.ChangeEventHandler,
   placeholder: string,
   size: number,

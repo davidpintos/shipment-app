@@ -25,7 +25,7 @@ const ShipmentCardOffer = ({index, item}:ShipmentCardOfferType ): JSX.Element =>
   }
 
   return (
-    <Card sx={cardStyles(index)} key={item.id}>
+    <Card data-testid="cardOffer" sx={cardStyles(index)} key={item.id}>
       <CardContent>
         { index === 0 && 
           <Typography sx={{ fontSize: 14, color: 'green'}} gutterBottom>

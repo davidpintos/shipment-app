@@ -3,14 +3,16 @@ import {
   configureStore,
   ThunkAction,
 } from '@reduxjs/toolkit'
-import { labelsReducer } from '../features/label';
+import { labelsReducer } from '../features/label'
 import { shipmentsReducer } from '../features/shipment'
 
+export const reducer = {
+  labels: labelsReducer,
+  shipments: shipmentsReducer
+};
+
 export const store = configureStore({
-  reducer: {
-    labels: labelsReducer,
-    shipments: shipmentsReducer
-  },
+  reducer
 });
 
 export type AppDispatch = typeof store.dispatch;
