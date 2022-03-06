@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Shipment App
 
-## Getting Started
+Esta aplicación fue desarrollada con Next.js (React). Utilizando la API de Skydropx (https://www.skydropx.com/) permite a los usuarios consultar y escoger entre los mejores servicios de envío de paquetería disponibles. 
 
-First, run the development server:
+## Variable de Entorno
 
+Para correr la aplicación en ambiente de DEV y que la misma pueda utilizar la API de Skydropx luego de clonar el proyecto es necesario crear el archivo .env.local en la carpeta principal de la aplicación y setear la API_KEY de Skydropx.
 ```bash
-npm run dev
-# or
-yarn dev
+NEXT_PUBLIC_API_KEY="<API_KEY>"
+```
+## Instalación
+Primero:
+```bash
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Luego:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Finalmente la aplicación debería estar disponible en [http://localhost:3000](http://localhost:3000).
+## Version Live
+Hay una versión LIVE de la aplicación en Vercel aquí: https://shipment-app-2psps6b4s-davidpintos.vercel.app/
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Testing
+Los tests de la aplicación fueron realizados sobre los componentes principales de la misma, se pueden correr así:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run tests
+```
+## ESlint
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Se puede correr Lint para verificar que el código esté correcto de la siguiente manera:
+```bash
+npm run lint
+```
