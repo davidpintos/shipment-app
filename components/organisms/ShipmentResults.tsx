@@ -14,7 +14,7 @@ import { TEXT_GENERATING_GUIDE, TEXT_GUIDE_ERROR_MESSAGE_TITLE, TEXT_SEARCH_ERRO
 const ShipmentResults = (): JSX.Element => {
   const shipmentResponse: ShipmentResponse = useAppSelector(shipmentsSelector);
   const labelResponse: LabelResponseType = useAppSelector(labelsSelector);
-
+  const router = useRouter();
   let rates: Rate[] | undefined;
 
   if (shipmentResponse && shipmentResponse.data) {
@@ -25,7 +25,6 @@ const ShipmentResults = (): JSX.Element => {
       !labelResponse.error &&
       labelResponse.data.data) {
       // Navigate to Guide
-      const router = useRouter();
       router.push(labelResponse.data.data?.attributes.label_url);
   }
 
