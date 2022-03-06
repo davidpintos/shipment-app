@@ -13,7 +13,7 @@ const testStore = (state: Partial<RootState>) => {
 }
 
 export const renderWithStore = (component: any, initialState: any) => {
-  const Wrapper = ({children}) => (
+  const Wrapper = ({children}: any) => (
     <Provider store={testStore(initialState)}>{children}</Provider>
   )
   return render(component, { wrapper: Wrapper })
